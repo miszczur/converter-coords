@@ -41,7 +41,6 @@ namespace converter_coords
             for (int count = 0; count < cordmatch.Count; count++)
             {
                 output += cordmatch[count].Value + " ";
-
             }
 
             results.Text = output;
@@ -58,7 +57,6 @@ namespace converter_coords
             for (int count = 0; count < cordmatch.Count; count++)
             {
                 output += cordmatch[count].Value + "\r\n";
-
             }
             
             results.Text = output;
