@@ -29,12 +29,12 @@ namespace converter_coords
         private void Convert_Click(object sender, RoutedEventArgs e)
         {
 
-           // string text = coords.Text.Replace("\r\n", " "); //replacing enters into spacebars
-          //  var deletingCharacters = text.Where(c => (Char.IsDigit(c) || c == '|'));
-           // var array = deletingCharacters.ToArray();
+            // string text = coords.Text.Replace("\r\n", " "); //replacing enters into spacebars
+            //  var deletingCharacters = text.Where(c => (Char.IsDigit(c) || c == '|'));
+            // var array = deletingCharacters.ToArray();
             string output = "";
             string pattern = "\\d+[|]\\d+";
-            string villages = new string(coords.Text.Replace(" ", string.Empty));
+            string villages = coords.Text.Replace(" ", string.Empty);
             Regex rg = new Regex(pattern);
             MatchCollection cordmatch = rg.Matches(villages);
 
@@ -44,13 +44,17 @@ namespace converter_coords
             }
 
             results.Text = output;
+
+            if (CopyToClipboard.IsChecked == true)
+            Clipboard.SetText(results.Text);
         }
 
         private void ResultsWithEnter_Click(object sender, RoutedEventArgs e)
         {
+
             string output = "";
             string pattern = "\\d+[|]\\d+";
-            string villages = new string(coords.Text.Replace(" ", string.Empty));
+            string villages = coords.Text.Replace(" ", string.Empty);
             Regex rg = new Regex(pattern);
             MatchCollection cordmatch = rg.Matches(villages);
 
@@ -58,8 +62,17 @@ namespace converter_coords
             {
                 output += cordmatch[count].Value + "\r\n";
             }
-            
+
             results.Text = output;
+
+            if(CopyToClipboard.IsChecked==true)
+            Clipboard.SetText(results.Text);
         }
+
+        private new void GotFocus(object sender, RoutedEventArgs e)
+        {
+            coords.Clear();
+        }
+
     }
-}
+    }
