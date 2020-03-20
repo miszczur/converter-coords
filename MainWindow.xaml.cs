@@ -26,53 +26,10 @@ namespace converter_coords
             InitializeComponent();
         }
 
-        private void Convert_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            // string text = coords.Text.Replace("\r\n", " "); //replacing enters into spacebars
-            //  var deletingCharacters = text.Where(c => (Char.IsDigit(c) || c == '|'));
-            // var array = deletingCharacters.ToArray();
-            string output = "";
-            string pattern = "\\d+[|]\\d+";
-            string villages = coords.Text.Replace(" ", string.Empty);
-            Regex rg = new Regex(pattern);
-            MatchCollection cordmatch = rg.Matches(villages);
-
-            for (int count = 0; count < cordmatch.Count; count++)
-            {
-                output += cordmatch[count].Value + " ";
-            }
-
-            results.Text = output;
-
-            if (CopyToClipboard.IsChecked == true)
-            Clipboard.SetText(results.Text);
+            Page1 mypage = new Page1();
+            frame.Navigate(mypage);
         }
-
-        private void ResultsWithEnter_Click(object sender, RoutedEventArgs e)
-        {
-
-            string output = "";
-            string pattern = "\\d+[|]\\d+";
-            string villages = coords.Text.Replace(" ", string.Empty);
-            Regex rg = new Regex(pattern);
-            MatchCollection cordmatch = rg.Matches(villages);
-
-            for (int count = 0; count < cordmatch.Count; count++)
-            {
-                output += cordmatch[count].Value + "\r\n";
-            }
-
-            results.Text = output;
-
-            if(CopyToClipboard.IsChecked==true)
-            Clipboard.SetText(results.Text);
-        }
-
-        private new void GotFocus(object sender, RoutedEventArgs e)
-        {
-            coords.Clear();
-        }
-
     }
     }

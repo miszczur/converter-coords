@@ -6,42 +6,22 @@
         xmlns:local="clr-namespace:converter_coords"
         mc:Ignorable="d"
         Title="Konwerter Koordow" Height="800" Width="500">
-    <Grid Margin="0,0,0,0" Background="#FF0B000F">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="250*"/>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="250*"/>
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="250*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="results" HorizontalAlignment="Center" Height="250" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="402" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button Content="Konwerter Koordów" HorizontalAlignment="Center" Margin="0,25,0,0" Grid.Row="0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Elo mordo" HorizontalAlignment="Center" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Ładna dziś pogoda" HorizontalAlignment="Center" Margin="0,25,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Frame x:Name="frame" Content="" Grid.RowSpan="3" Grid.Column="2" Height="500"/>
 
-        <TextBox x:Name="coords" HorizontalAlignment="Center" Height="250" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="402" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" GotFocus="GotFocus" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <TextBox.FocusVisualStyle>
-                <Style/>
-            </TextBox.FocusVisualStyle>
-        </TextBox>
-        <Button x:Name="convert" Content="Konwertuj" HorizontalAlignment="Center" Height="63" Margin="5,0,0,0" VerticalAlignment="Center" Width="190" Click="Convert_Click" IsDefault="True" Grid.Row="2">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-
-
-        <Button x:Name="ResultsWithEnter" Content="Konwertuj (z enterem)" HorizontalAlignment="Center" Margin="5,0,0,0" VerticalAlignment="Center" Height="63" Width="190" Click="ResultsWithEnter_Click" Grid.Column="1" Grid.Row="2" >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <CheckBox x:Name="CopyToClipboard" Content="Kopiuj bezpośrednio do schowka" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Background="White" Foreground="White"/>
     </Grid>
+
 </Window>
